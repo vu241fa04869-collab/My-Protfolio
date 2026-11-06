@@ -1,81 +1,95 @@
+
 const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+const sidebar = document.getElementById("sidebar");
 
+// Mobile sidebar navigation
 menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+  const isOpen = sidebar.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation" : "Open navigation"
+  );
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
+// Close sidebar after clicking a menu item
+document.querySelectorAll(".side-link").forEach(link => {
+  link.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Close sidebar when clicking outside
+document.addEventListener("click", event => {
+  if (
+    window.innerWidth <= 760 &&
+    sidebar.classList.contains("open") &&
+    !sidebar.contains(event.target) &&
+    !menuToggle.contains(event.target)
+  ) {
+    sidebar.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  }
+});
+
+// Active sidebar menu item
+document.querySelectorAll(".side-link").forEach(link => {
+  link.addEventListener("click", () => {
+    document.querySelectorAll(".side-link").forEach(item => {
+      item.classList.remove("active");
     });
+
+    link.classList.add("active");
+  });
 });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.15
+// Dark and light theme toggle
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  themeToggle.textContent =
+    document.body.classList.contains("dark") ? "☾" : "☼";
 });
 
-document.querySelectorAll(".reveal").forEach(element => {
-    observer.observe(element);
-});
+// Automatically display current year
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-const roles = [
-    "Web Developer",
-    "Student Developer",
-    "Creative Learner"
-];
-
-const typedRole = document.getElementById("typedRole");
-
-let roleIndex = 0;
-
-setInterval(() => {
-    roleIndex = (roleIndex + 1) % roles.length;
-    typedRole.textContent = roles[roleIndex];
-}, 2500);
-
-
+// Contact form
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+contactForm.addEventListener("submit", event => {
+  event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-    const formNote = document.getElementById("formNote");
+  const formNote = document.getElementById("formNote");
 
-    if (!name || !email || !message) {
-        formNote.textContent = "Please fill in all fields.";
-        return;
-    }
+  if (!name || !email || !message) {
+    formNote.textContent = "Please fill in all fields.";
+    return;
+  }
 
-    const recipient = "your.email@example.com";
+  // Replace with your actual email address
+  const recipient = "your.email@example.com";
 
-    const subject = encodeURIComponent(
-        "Portfolio Message from " + name
-    );
+  const subject = encodeURIComponent(
+    "Portfolio message from " + name
+  );
 
-    const body = encodeURIComponent(
-        "Name: " + name +
-        "\nEmail: " + email +
-        "\n\nMessage:\n" + message
-    );
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  );
 
-    window.location.href =
-        `mailto:${recipient}?subject=${subject}&body=${body}`;
+  window.location.href =
+    `mailto:${recipient}?subject=${subject}&body=${body}`;
 
-    formNote.textContent =
-        "Your email application should open. Press Send to send your message.";
+  formNote.textContent =
+    "Your email application should open. Press Send to send your message.";
 });
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();

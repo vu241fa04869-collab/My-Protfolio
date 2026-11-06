@@ -1,308 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My personal developer portfolio">
-    <title>Phanindra Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Phanindra's student and developer portfolio">
+  <title>Phanindra | Portfolio Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<header class="header">
-    <nav class="navbar container">
-        <a href="#home" class="logo">PORT<span>FOLIO.</span></a>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <a href="#contact" class="nav-button">Let's Talk ↗</a>
+  <header class="topbar">
+    <a class="brand" href="#dashboard" aria-label="Phanindra portfolio home">
+      <span class="brand-mark">P</span>
+      <span><strong>PHANINDRA</strong><small>STUDENT PORTFOLIO</small></span>
+    </a>
+    <nav class="top-actions" aria-label="Quick navigation">
+      <a href="#education">Education</a>
+      <a href="#projects">My Projects</a>
+      <a href="#contact" class="top-action-primary">Contact Me</a>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">☼</button>
     </nav>
-</header>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </header>
 
-<main>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <p class="sidebar-label">WORKSPACE</p>
+      <a class="side-link active" href="#dashboard"><span>▦</span> Dashboard</a>
+      <a class="side-link" href="#about"><span>♙</span> Personal Profile</a>
+      <a class="side-link" href="#education"><span>▤</span> Education</a>
+      <a class="side-link" href="#skills"><span>✧</span> Technical Skills</a>
+      <a class="side-link" href="#projects"><span>⌘</span> Projects</a>
+      <a class="side-link" href="#certificates"><span>♜</span> Achievements</a>
+      <a class="side-link" href="#contact"><span>✉</span> Contact</a>
+      <div class="sidebar-note">
+        <span class="note-icon">✦</span>
+        <strong>Keep learning!</strong>
+        <p>Every project is another step forward.</p>
+      </div>
+    </aside>
 
-    <section class="hero container" id="home">
-        <div class="hero-content reveal">
-            <p class="availability">● AVAILABLE FOR OPPORTUNITIES</p>
+    <main class="main-content">
+      <section class="welcome-row" id="dashboard">
+        <div class="welcome-person">
+          <div class="avatar-small"><img src="Me.jpg" alt="Phanindra profile photo" onerror="this.style.display='none';this.parentElement.textContent='P'"></div>
+          <div>
+            <p class="eyebrow">STUDENT & ASPIRING DEVELOPER</p>
+            <h1>Welcome, <span>Phanindra</span></h1>
+            <p class="welcome-subtitle">Your personal learning and project dashboard</p>
+          </div>
+        </div>
+        <div class="profile-chip"><span class="online-dot"></span> Portfolio Overview</div>
+      </section>
 
-            <p class="hello">Hello, I'm</p>
+      <section class="dashboard-grid" aria-label="Portfolio overview">
+        <article class="panel personal-panel" id="about">
+          <div class="panel-heading">
+            <div class="heading-icon">♙</div>
+            <div><h2>Personal Details</h2><p>A little information about me</p></div>
+            <span class="heading-corner">✦</span>
+          </div>
+          <div class="details-grid">
+            <div class="detail"><span>NAME</span><strong>P. Phanindra</strong></div>
+            <div class="detail"><span>COURSE</span><strong>B.Tech</strong></div>
+            <div class="detail"><span>BRANCH</span><strong>Computer Science & Engineering</strong></div>
+            <div class="detail"><span>INSTITUTION</span><strong>Vignan University</strong></div>
+            <div class="detail"><span>YEAR</span><strong>3rd Year</strong></div>
+            <div class="detail"><span>AREA OF INTEREST</span><strong>Web Development & Programming</strong></div>
+          </div>
+          <p class="profile-summary">I enjoy learning new technologies, solving problems and building useful digital experiences.</p>
+        </article>
 
-            <h1>
-                <span class="gradient">P.PHANINDRA</span><br>
-                a <span id="typedRole">Web Developer</span>
-            </h1>
-
-            <p class="description">
-                I build creative, responsive and engaging digital
-                experiences. I enjoy turning ideas into reality with code.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary">Explore My Work ↗</a>
-                <a href="#contact" class="btn secondary">Contact Me</a>
-            </div>
-
-            <div class="social-links">
-                <a href="https://github.com/" target="_blank">GH</a>
-                <a href="https://linkedin.com/" target="_blank">in</a>
-                <a href="mailto:your.email@example.com">@</a>
-            </div>
+        <div class="quick-cards">
+          <article class="quick-card"><div class="quick-icon blue-icon">⌘</div><strong>Technical Skills</strong><span>Technologies I'm learning</span><a href="#skills">View Skills ↗</a></article>
+          <article class="quick-card"><div class="quick-icon orange-icon">▣</div><strong>Projects</strong><span>Hands-on development work</span><a href="#projects">View Projects ↗</a></article>
+          <article class="quick-card"><div class="quick-icon green-icon">✦</div><strong>Achievements</strong><span>Certificates and milestones</span><a href="#certificates">View Details ↗</a></article>
+          <article class="quick-card"><div class="quick-icon purple-icon">✉</div><strong>Contact</strong><span>Connect and collaborate</span><a href="#contact">Get in Touch ↗</a></article>
         </div>
 
-        <div class="hero-image reveal">
-            <div class="image-glow"></div>
-            <div class="profile-frame">
-                <img src="Me.jpg" alt="My Profile Photo"
-                     onerror="this.style.display='none';document.getElementById('photoPlaceholder').style.display='grid'">
-                <div id="photoPlaceholder" class="photo-placeholder">
-                    YOUR PHOTO
-                </div>
-            </div>
-            <div class="floating-card card-one">
-                <strong>💻 Clean Code</strong>
-                <small>Built with care</small>
-            </div>
-            <div class="floating-card card-two">
-                <strong>✦ Creative Ideas</strong>
-                <small>Made real</small>
-            </div>
-        </div>
-    </section>
+        <article class="panel journey-panel">
+          <div class="panel-heading">
+            <div class="heading-icon">▤</div>
+            <div><h2>Learning Journey</h2><p>My current academic path</p></div>
+          </div>
+          <div class="journey-content">
+            <div class="journey-badge">B.Tech</div>
+            <div><strong>Computer Science & Engineering</strong><p>Vignan University · 3rd Year</p></div>
+            <a href="#education" class="inline-link">Education details ↗</a>
+          </div>
+        </article>
 
-    <section class="section container" id="about">
-        <div class="section-heading reveal">
-            <p class="subtitle">GET TO KNOW ME</p>
-            <h2>About <span class="gradient">Me</span></h2>
-        </div>
+        <article class="panel highlights-panel">
+          <div class="panel-heading">
+            <div class="heading-icon">✧</div>
+            <div><h2>Student Highlights</h2><p>Areas I focus on</p></div>
+          </div>
+          <div class="highlight-pills">
+            <span>⌨ Programming</span><span>◈ Web Development</span><span>▣ Project Building</span><span>✦ Continuous Learning</span>
+          </div>
+        </article>
+      </section>
 
-        <div class="about-content reveal">
-            <h3>Curious Mind. Creative Builder. Lifelong Learner.</h3>
+      <section class="lower-grid">
+        <article class="panel section-panel" id="skills">
+          <div class="section-title"><div><p class="eyebrow">WHAT I WORK WITH</p><h2>Technical Skills</h2></div><span class="section-symbol">✧</span></div>
+          <div class="skills-list">
+            <div class="skill-row"><span class="skill-bullet html">5</span><div><strong>HTML5</strong><small>Web page structure</small></div><span class="skill-tag">Frontend</span></div>
+            <div class="skill-row"><span class="skill-bullet css">✳</span><div><strong>CSS3</strong><small>Responsive design and styling</small></div><span class="skill-tag">Frontend</span></div>
+            <div class="skill-row"><span class="skill-bullet js">JS</span><div><strong>JavaScript</strong><small>Interactive web experiences</small></div><span class="skill-tag">Programming</span></div>
+            <div class="skill-row"><span class="skill-bullet py">Py</span><div><strong>Python</strong><small>Programming fundamentals</small></div><span class="skill-tag">Programming</span></div>
+            <div class="skill-row"><span class="skill-bullet java">J</span><div><strong>Java</strong><small>Object-oriented programming</small></div><span class="skill-tag">Programming</span></div>
+            <div class="skill-row"><span class="skill-bullet git">⌘</span><div><strong>Git & GitHub</strong><small>Version control</small></div><span class="skill-tag">Tools</span></div>
+          </div>
+        </article>
 
-            <p>
-                I'm a B.Tech student passionate about programming,
-                web development and technology.
-            </p>
+        <article class="panel section-panel" id="projects">
+          <div class="section-title"><div><p class="eyebrow">MY RECENT WORK</p><h2>Featured Projects</h2></div><span class="section-symbol">⌘</span></div>
+          <div class="project-list">
+            <div class="project-item"><div class="project-icon game">🎮</div><div class="project-copy"><strong>GameZone X</strong><p>A gaming website concept with interactive game experiences.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div><a href="https://github.com/" target="_blank" rel="noopener">↗</a></div>
+            <div class="project-item"><div class="project-icon weather">☀</div><div class="project-copy"><strong>Weather App</strong><p>A web application for viewing weather information.</p><div class="tags"><span>HTML</span><span>CSS</span><span>API</span></div></div><a href="https://github.com/" target="_blank" rel="noopener">↗</a></div>
+            <div class="project-item"><div class="project-icon portfolio">⌘</div><div class="project-copy"><strong>Personal Portfolio</strong><p>This website presenting my profile, skills and work.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div><a href="#dashboard">↗</a></div>
+          </div>
+        </article>
 
-            <p>
-                I enjoy learning new technologies, solving problems
-                and creating useful projects. My goal is to become
-                a skilled software developer.
-            </p>
+        <article class="panel section-panel" id="education">
+          <div class="section-title"><div><p class="eyebrow">MY LEARNING JOURNEY</p><h2>Education</h2></div><span class="section-symbol">▤</span></div>
+          <div class="education-entry"><span class="timeline-dot"></span><div><span class="status-label">CURRENT</span><h3>Bachelor of Technology (B.Tech)</h3><strong>Vignan University · CSE</strong><p>Currently pursuing my undergraduate degree and developing my technical knowledge.</p></div></div>
+          <div class="education-entry"><span class="timeline-dot"></span><div><span class="status-label previous">PREVIOUS</span><h3>Intermediate / Higher Secondary</h3><strong>Sri Chaitanya Junior College</strong><p>Completed Intermediate with 89.9%.</p></div></div>
+        </article>
 
-            <a href="#contact" class="text-link">Let's work together ↗</a>
-        </div>
-    </section>
+        <article class="panel section-panel" id="certificates">
+          <div class="section-title"><div><p class="eyebrow">MILESTONES</p><h2>Certificates & Achievements</h2></div><span class="section-symbol">♜</span></div>
+          <div class="achievement-box"><div class="achievement-icon">🏆</div><div><strong>My Certificates</strong><p>Add your certificates, workshops, awards and achievements here.</p></div></div>
+          <div class="achievement-box"><div class="achievement-icon">💡</div><div><strong>Learning by Building</strong><p>Developing practical skills through academic and personal projects.</p></div></div>
+        </article>
+      </section>
 
-    <section class="section container" id="skills">
-        <div class="section-heading reveal">
-            <p class="subtitle">WHAT I WORK WITH</p>
-            <h2>My <span class="gradient">Skills</span></h2>
-            <p class="muted">Technologies and tools I am learning and using.</p>
-        </div>
+      <section class="bottom-grid" id="contact">
+        <article class="panel announcements">
+          <div class="panel-heading"><div class="heading-icon">♬</div><div><h2>Updates & Interests</h2><p>What I'm currently focused on</p></div></div>
+          <div class="announcement-row"><span>●</span> Improving frontend development skills <b>↗</b></div>
+          <div class="announcement-row"><span>●</span> Building and improving personal projects <b>↗</b></div>
+          <div class="announcement-row"><span>●</span> Learning new programming concepts <b>↗</b></div>
+        </article>
+        <article class="panel contact-panel">
+          <div class="panel-heading"><div class="heading-icon">✉</div><div><h2>Let's Connect</h2><p>Have an opportunity or want to collaborate?</p></div></div>
+          <form id="contactForm">
+            <label for="name">Your name</label><input id="name" type="text" placeholder="Enter your name" required>
+            <label for="email">Your email</label><input id="email" type="email" placeholder="Enter your email" required>
+            <label for="message">Message</label><textarea id="message" rows="3" placeholder="Write your message..." required></textarea>
+            <button class="send-button" type="submit">Send Message ↗</button>
+            <p id="formNote" class="form-note">Your email application will open to send the message.</p>
+          </form>
+        </article>
+      </section>
 
-        <div class="skills-grid">
-            <div class="skill-card reveal">
-                <span class="skill-icon orange">5</span>
-                <h3>HTML5</h3>
-                <p>Website structure and semantic elements.</p>
-                <div class="progress"><span style="width:85%"></span></div>
-            </div>
-
-            <div class="skill-card reveal">
-                <span class="skill-icon blue">✳</span>
-                <h3>CSS3</h3>
-                <p>Responsive layouts and animations.</p>
-                <div class="progress"><span style="width:80%"></span></div>
-            </div>
-
-            <div class="skill-card reveal">
-                <span class="skill-icon yellow">JS</span>
-                <h3>JavaScript</h3>
-                <p>Interactive website functionality.</p>
-                <div class="progress"><span style="width:70%"></span></div>
-            </div>
-
-            <div class="skill-card reveal">
-                <span class="skill-icon cyan">Py</span>
-                <h3>Python</h3>
-                <p>Programming and problem solving.</p>
-                <div class="progress"><span style="width:65%"></span></div>
-            </div>
-
-            <div class="skill-card reveal">
-                <span class="skill-icon red">J</span>
-                <h3>Java</h3>
-                <p>Object-oriented programming.</p>
-                <div class="progress"><span style="width:65%"></span></div>
-            </div>
-
-            <div class="skill-card reveal">
-                <span class="skill-icon purple">⌘</span>
-                <h3>Git & GitHub</h3>
-                <p>Version control and collaboration.</p>
-                <div class="progress"><span style="width:60%"></span></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section container" id="projects">
-        <div class="section-heading reveal">
-            <p class="subtitle">MY RECENT WORK</p>
-            <h2>Featured <span class="gradient">Projects</span></h2>
-        </div>
-
-        <div class="projects-grid">
-
-            <div class="project-card reveal">
-                <div class="project-art game-art">
-                    <span>🎮</span>
-                    <h3>GAMEZONE X</h3>
-                    <p>PLAY • EXPLORE • COMPETE</p>
-                </div>
-                <div class="project-info">
-                    <h3>GameZone X</h3>
-                    <p>
-                        A gaming website where users can explore
-                        games and enjoy interactive experiences.
-                    </p>
-                    <div class="tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                    </div>
-                    <a href="https://github.com/" target="_blank" class="text-link">View Project ↗</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-art weather-art">
-                    <span>🌤️</span>
-                    <h3>WEATHER APP</h3>
-                </div>
-                <div class="project-info">
-                    <h3>Weather App</h3>
-                    <p>
-                        A weather application concept for displaying
-                        current conditions and forecasts.
-                    </p>
-                    <div class="tags">
-                        <span>HTML</span><span>CSS</span><span>API</span>
-                    </div>
-                    <a href="https://github.com/" target="_blank" class="text-link">View Project ↗</a>
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-art portfolio-art">
-                    <span>&lt;/&gt;</span>
-                    <h3>MY PORTFOLIO</h3>
-                </div>
-                <div class="project-info">
-                    <h3>Personal Portfolio</h3>
-                    <p>
-                        My personal website showcasing my education,
-                        technical skills and projects.
-                    </p>
-                    <div class="tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                    </div>
-                    <a href="#home" class="text-link">You're viewing it ↗</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="section container" id="education">
-        <div class="section-heading reveal">
-            <p class="subtitle">MY LEARNING JOURNEY</p>
-            <h2><span class="gradient">Education</span></h2>
-        </div>
-
-        <div class="education-card reveal">
-            <span class="timeline-dot"></span>
-            <p class="subtitle">CURRENT</p>
-            <h3>Bachelor of Technology (B.Tech)</h3>
-            <p class="muted">Vignan University| CSE</p>
-            <p>
-                Currently pursuing my undergraduate degree
-                and developing my technical knowledge.
-            </p>
-        </div>
-
-        <div class="education-card reveal">
-            <span class="timeline-dot"></span>
-            <p class="subtitle">PREVIOUS</p>
-            <h3>Intermediate / Higher Secondary</h3>
-            <p class="muted">Sri chaitanya junior collage</p>
-            <p>I got 89.9 percentage in my Intermediate. And I have good learning skill and fast problem solving.</p>
-        </div>
-    </section>
-
-    <section class="section container" id="certificates">
-        <div class="section-heading reveal">
-            <p class="subtitle">MY ACHIEVEMENTS</p>
-            <h2>Certificates & <span class="gradient">Achievements</span></h2>
-        </div>
-
-        <div class="certificate-card reveal">
-            <span>🏆</span>
-            <div>
-                <h3>My Certificates</h3>
-                <p class="muted">
-                    Add your certificates, workshops, awards and achievements here.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section container" id="contact">
-        <div class="contact-box reveal">
-            <div class="contact-intro">
-                <p class="subtitle">HAVE A PROJECT IN MIND?</p>
-                <h2>Let's Create<br>Something <span class="gradient">Great.</span></h2>
-                <p class="muted">
-                    Have a question or opportunity?
-                    Send me a message.
-                </p>
-                <a href="mailto:your.email@example.com" class="btn primary">
-                    Email Me ↗
-                </a>
-            </div>
-
-            <form id="contactForm">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
-
-                <label for="email">Your Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
-
-                <button type="submit" class="btn primary">Send Message ↗</button>
-                <p id="formNote" class="form-note">
-                    Your email application will open to send the message.
-                </p>
-            </form>
-        </div>
-    </section>
-
-</main>
-
-<footer class="footer">
-    <a href="#home" class="logo">PORT<span>FOLIO.</span></a>
-    <p>Designed and built with care.</p>
-    <p>© <span id="year"></span> Phanindra. All rights reserved.</p>
-</footer>
+      <footer class="footer"><span>© <span id="year"></span> P. Phanindra</span><span>Designed with care · Student Portfolio</span><a href="#dashboard">Back to top ↑</a></footer>
+    </main>
+  </div>
 </body>
 </html>
